@@ -1,0 +1,38 @@
+﻿<Window x:Class="ClassroomDispatcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClassroomDispatcher"
+        mc:Ignorable="d"
+        Title="Classroom Dispatcher" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized" DataContext="Main">
+    <DockPanel x:Name="dockpanel" LastChildFill="True">
+            <StatusBar DockPanel.Dock="Bottom" Height="25">
+                <Label Content="www.babaluga.com - rudi@babaluga.com" HorizontalAlignment="Stretch" 
+                   Margin="0,0,0,0" VerticalAlignment="Center" Background="Beige" Padding="0" FontSize="14" />
+                <TextBlock x:Name="tbConnectionString" Text="{Binding ConnectionString}" />
+            </StatusBar>
+        <Border CornerRadius="6" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Left">
+            <DockPanel Width="245" HorizontalAlignment="Left">
+                <Label DockPanel.Dock="Top" Content="Actions" Background="BurlyWood" />
+                <ListView x:Name="lvActions" DockPanel.Dock="Top" MinHeight="400"/>
+                <Label Content="Serveurs" DockPanel.Dock="Top" Background="BurlyWood" />
+                <TextBox x:Name="DispatcherTextBlock" DockPanel.Dock="Top" Text="{Binding DispatcherServers}" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+            </DockPanel>
+            </Border>
+        <Border CornerRadius="6" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Right">
+            <DockPanel x:Name="tabControl" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" LastChildFill="True">
+                <TextBox x:Name="ConnectionString" DockPanel.Dock="Top" Text="{Binding ConnectionString}" TextWrapping="Wrap" AcceptsReturn="True" Height="40"/>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" >
+                    <Label Content="Itérations :" />
+                    <TextBox x:Name="txtIterations" Width="40" Text="{Binding Iterations}" />
+                    <Label Content="Intervalle :" />
+                    <TextBox x:Name="txtInterval" Width="40" Text="{Binding Interval}" />
+                    <Button x:Name="btnDispatch" Content="Dispatch" Width="100" HorizontalAlignment="Left" Click="btnDispatch_Click" Margin="2" />
+                </StackPanel>
+                <ListView x:Name="MessagesListView" DockPanel.Dock="Top" ItemsSource="{Binding Messages}" MinHeight="200" />
+            </DockPanel>
+        </Border>
+    </DockPanel>
+</Window>

@@ -1,0 +1,2 @@
+﻿- remplissage du cache de plans
+- OptionsSQLServer -- A TERMINER
